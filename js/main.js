@@ -100,10 +100,13 @@ function operate(operator, buffer) {
     }
     memory = result;
     clearBuffer();
-    display(result);
+    display(String(result));
 }
 
 function display(message) {
+    if (message.length > 6) {
+        message = message.split("").slice(0, 6).join("") + "...";
+    }
     document.querySelector(".display").textContent = message;
 }
 
